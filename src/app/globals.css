@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-h: 72px;
+    color-scheme: light;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 24px);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-[17px] leading-relaxed text-ink antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading text-navy-900;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  ::selection { @apply bg-leaf-200 text-navy-900; }
+  :focus-visible {
+    outline: 3px solid #0190C6;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-heading text-xs font-semibold uppercase tracking-[0.18em] text-leaf-600;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-[2px] w-6 rounded-full bg-leaf-500;
+  }
+  .eyebrow-light { @apply text-leaf-300; }
+  .eyebrow-light::before { @apply bg-leaf-400; }
+
+  .btn {
+    @apply inline-flex min-h-[48px] cursor-pointer items-center justify-center gap-2 rounded-full px-6 font-heading text-[15px] font-semibold transition duration-200 ease-out disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary { @apply btn bg-leaf-600 text-white shadow-[0_10px_24px_-12px_rgba(61,134,43,.8)] hover:bg-leaf-700 hover:shadow-[0_14px_28px_-12px_rgba(61,134,43,.9)]; }
+  .btn-dark { @apply btn bg-navy-900 text-white hover:bg-navy-800; }
+  .btn-outline { @apply btn border border-navy-200 bg-white text-navy-900 hover:border-navy-400 hover:bg-navy-50; }
+  .btn-ghost-light { @apply btn border border-white/25 bg-white/5 text-white backdrop-blur hover:border-white/50 hover:bg-white/10; }
+
+  .card {
+    @apply rounded-2xl border border-surface-line bg-white shadow-card;
+  }
+  .card-hover {
+    @apply transition duration-300 ease-out hover:-translate-y-0.5 hover:border-leaf-200 hover:shadow-lift;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-navy-100 bg-navy-50 px-3 py-1 font-heading text-xs font-semibold text-navy-700;
+  }
+  .link {
+    @apply font-semibold text-leaf-700 underline decoration-leaf-300 decoration-2 underline-offset-4 transition hover:decoration-leaf-600;
+  }
+
+  /* Texto largo de artículos y páginas legales */
+  .prose-orh { @apply max-w-[72ch] text-ink-soft; }
+  .prose-orh h2 { @apply mb-3 mt-10 text-2xl font-semibold; }
+  .prose-orh h3 { @apply mb-2 mt-8 text-xl font-semibold; }
+  .prose-orh p { @apply my-4; }
+  .prose-orh ul { @apply my-4 list-disc space-y-2 pl-6 marker:text-leaf-500; }
+  .prose-orh ol { @apply my-4 list-decimal space-y-2 pl-6 marker:font-semibold marker:text-navy-700; }
+  .prose-orh strong { @apply font-semibold text-navy-900; }
+  .prose-orh a { @apply link; }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}

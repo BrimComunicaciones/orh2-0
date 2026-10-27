@@ -1,0 +1,11 @@
+/* EQUIPO */
+Empresa: ORH Petro Consultores
+Sitio: https://orhpetroconsultores.com
+Contacto: ventas [at] orhpetroconsultores.com
+Ubicación: Coyoacán, Ciudad de México, México
+
+/* SITIO */
+Idioma: Español (México)
+Estándares: HTML5, CSS3, schema.org, llms.txt
+Componentes: Next.js, React, TypeScript, Tailwind CSS, Lucide
+Tipografías: Lexend, Source Sans 3
